@@ -1,0 +1,26 @@
+function convertendo()
+{	
+	/* Calculando a diferença de datas */
+
+	var dataGameJam = new Date("Nov 9, 2016");
+	dataGameJam.setHours(18);
+	
+	var dataAtual = new Date();
+
+	var dayDiff = Math.abs(dataGameJam.getTime() - dataAtual.getTime());
+	var hourDiff = Math.abs(dataGameJam.getHours() - dataAtual.getHours());
+	var minDiff = Math.abs(60 - dataAtual.getMinutes());
+	var secDiff = Math.abs(60 - dataAtual.getSeconds());
+	
+	var diffDays = Math.ceil(dayDiff / (1000 * 3600 * 24)); 
+	
+	/* Imprimindo */
+	
+	var div = document.getElementById("cronometro");
+	
+	var text = diffDays+" Dias, "+ hourDiff+" Horas, "+minDiff+" Minutos, e "+secDiff+" Segundos";
+	
+	//div.textContent = text;
+	
+	document.getElementById('cronometro').innerHTML=text;
+}

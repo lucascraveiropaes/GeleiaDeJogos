@@ -744,30 +744,3 @@ img::-moz-selection {
 body {
   webkit-tap-highlight-color: #fed136;
 }
-
-/* Minhas modificações */
-
-#timer {
-  width: 100%;
-  height: auto;
-  margin-top: 20px;
-  margin-bottom: 20px;
-  margin-right: 0px;
-  margin-left: 0px;
-  background-color: #FFFFFF;
-
-  margin-top: 0px;
-  margin-bottom: 0px;
-  margin-right: 0px;
-  margin-left: 0px;
-}
-#timer p {
-  font-size: 20px;
-  font-weight: bold;
-  text-transform: uppercase;
-  text-align: center;
-  color: #000000;
-  text-align: left;
-  font-size: 15px;
-  
-}
