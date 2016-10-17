@@ -6,9 +6,8 @@ function cronometro()
 	var dataAtual = new Date();
 
 	var dayDiff = Math.abs(dataGameJam.getTime() - dataAtual.getTime());
-	//var hourDiff = Math.abs(dataGameJam.getHours() - dataAtual.getHours());
-	var hourDiff = dataGameJam.getHours() - dataAtual.getHours();
-	var minDiff = Math.abs(60 - dataAtual.getMinutes());
+	var hourDiff = (dataGameJam.getHours() - dataAtual.getHours())-1;
+	var minDiff = Math.abs(60 - dataAtual.getMinutes())-1;
 	var secDiff = Math.abs(60 - dataAtual.getSeconds());
 
 	var diffDays = Math.ceil(dayDiff / (1000 * 3600 * 24)); 
@@ -16,32 +15,53 @@ function cronometro()
 	/* Imprimindo */
 
 	var text = "Calculando...";
-	
+
+	if(dataGameJam.getHours() < dataAtual.getHours())
+	{
+		hourDiff = dataAtual.getHours()-1;
+	}
+
 	if(dataGameJam.getHours() == dataAtual.getHours())
 	{
 		hourDiff = 23;
 	}
 
+	if(hourDiff < 0)
+	{
+		hourDiff = (hourDiff*(-1));
+	}
+
 	if(hourDiff == 0)
 	{
-		text = diffDays+" Dias, "+minDiff+" Minutos, e "+secDiff+" Segundos";
+	 	text = "<li id=\"day\">Dias<br>"+diffDays+"</li>";
+		text += "<li id=\"minute\">Minutos<br>"+minDiff+"</li>";
+		text += "<li id=\"sec\">Segundos<br>"+secDiff+"</li>";
 	}
 	else if(dayDiff == 0)
 	{
-		text = hourDiff+" Horas, "+minDiff+" Minutos, e "+secDiff+" Segundos";
+		text += "<li id=\"hour\">Horas<br>"+hourDiff+"</li>";
+		text += "<li id=\"minute\">Minutos<br>"+minDiff+"</li>";
+		text += "<li id=\"sec\">Segundos<br>"+secDiff+"</li>";
 	}
 	else if(minDiff == 0)
 	{
-		text = diffDays+" Dias, "+hourDiff+" Horas, e "+secDiff+" Segundos";
+	 	text = "<li id=\"day\">Dias<br>"+diffDays+"</li>";
+		text += "<li id=\"hour\">Horas<br>"+hourDiff+"</li>";
+		text += "<li id=\"sec\">Segundos<br>"+secDiff+"</li>";
 	}
 	else if(secDiff == 0)
 	{
-		text = diffDays+" Dias, "+hourDiff+" Horas, e "+minDiff+" Minutos";
+		text = "<li id=\"day\">Dias<br>"+diffDays+"</li>";
+		text += "<li id=\"hour\">Horas<br>"+hourDiff+"</li>";
+		text += "<li id=\"minute\">Minutos<br>"+minDiff+"</li>";
 	}
 	else
 	{
-	 	text = diffDays+" Dias, "+hourDiff+" Horas, "+minDiff+" Minutos, e "+secDiff+" Segundos";
+	 	text = "<li id=\"day\">Dias<br>"+diffDays+"</li>";
+		text += "<li id=\"hour\">Horas<br>"+hourDiff+"</li>";
+		text += "<li id=\"minute\">Minutos<br>"+minDiff+"</li>";
+		text += "<li id=\"sec\">Segundos<br>"+secDiff+"</li>";
 	}
 
-	document.getElementById("cronometro").innerHTML = text;
+	document.getElementById("countdown").innerHTML = text;
 }
