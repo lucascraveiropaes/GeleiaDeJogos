@@ -6,15 +6,11 @@ function google_maps(){
 	var soma = margem+borda+padding;
 
 	var larguraTela = window.innerWidth;
-	larguraTela=larguraTela - (soma*2.2);
 
-	var alturaTela = larguraTela/2;
+	var alturaTela = ((larguraTela-(soma*2.2))/2)+"px";
 
-	larguraTela = larguraTela + "px";
-	alturaTela = alturaTela + "px";
-
-	document.querySelector(".google_maps").style.width=larguraTela;
-	document.querySelector(".google_maps").style.height=alturaTela;
+	document.querySelector(".google_maps").style.width= "100%";
+	document.querySelector(".google_maps").style.height= alturaTela;
 
 	//document.getElementById("mapa").innerHTML = soma;
 	}

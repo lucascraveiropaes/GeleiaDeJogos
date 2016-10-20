@@ -139,8 +139,8 @@ fieldset[disabled] .btn-xl:hover
 
 .navbar-custom
 {
-	background-color: black;
-	border-color:transparent
+	background-color: #016CA0;
+	border-color:#016CA0;
 }
 
 .navbar-custom .navbar-brand
