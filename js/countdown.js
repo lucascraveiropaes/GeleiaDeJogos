@@ -15,6 +15,7 @@ function cronometro()
 	/* Imprimindo */
 
 	var text = "Calculando...";
+	diffDays = diffDays-1;
 
 	if(dataGameJam.getHours() < dataAtual.getHours())
 	{
